@@ -1,17 +1,19 @@
 import express from "express";
-
-const app = express();
-
-app.use(express.json());
+import { expressMiddleware } from "@apollo/server/express4";
+import createGraphqlServer from "./graphql";
 
 const PORT = Number(process.env.PORT) || 4000;
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
+async function startServer() {
+  const app = express();
 
-app.listen({ port: PORT }, () => {
-  console.log(`🚀 Server ready at http://localhost:4000`);
-});
+  app.use(express.json());
 
+  app.use("/graphql", expressMiddleware(await createGraphqlServer()));
 
+  app.listen({ port: PORT }, () => {
+    console.log(`🚀 Server ready at http://localhost:4000`);
+  });
+}
+
+startServer();
