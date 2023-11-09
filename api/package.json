@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsc-watch --onSuccess \"npm start\"",
-    "start": "node build/index.js"
+    "generate": "npx prisma generate",
+    "dev": "tsc-watch --onSuccess \"pnpm start\"",
+    "start": "node build/index.js",
+    "build": "pnpm generate && tsc"
   },
   "keywords": [],
   "author": "",

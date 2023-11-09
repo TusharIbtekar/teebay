@@ -1,5 +1,5 @@
 import { createHmac, randomBytes } from "crypto";
-import { Prisma } from "@prisma/client";
+import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 import { z } from "zod";
 import jwt from "jsonwebtoken";
 
@@ -58,7 +58,7 @@ class UserService {
         throw new Error(
           "Invalid user registration data type. Please check the provided data."
         );
-      } else if (error instanceof Prisma.PrismaClientKnownRequestError) {
+      } else if (error instanceof PrismaClientKnownRequestError) {
         if (error.code === "P2002") {
           throw new Error("A new user cannot be created with this email");
         }

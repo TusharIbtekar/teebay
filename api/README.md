@@ -8,7 +8,7 @@ docker compose up -d    # to spin db
 cd api
 pnpm i                  # install deps
 mv .env.example .env    # copy .env file
-npx prisma migrate dev  # apply db migrations
+npx prisma generate  # apply db migrations
 pnm dev
 ```
 
