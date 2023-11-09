@@ -6,6 +6,7 @@
 
 ```bash
 git clone git@github.com:TusharIbtekar/teebay.git
+mv .env.example .env
 docker compose up -d
 ```
 
