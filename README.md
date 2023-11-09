@@ -28,6 +28,8 @@ Planned,
 - Vite
 - React-hook-form
 - Zod
+- TailwindCSS
+- Mantine
 
 ### Todos
 
