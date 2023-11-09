@@ -56,6 +56,10 @@ Planned,
 - TailwindCSS
 - Mantine
 
+## Challenges & Solution
+
+- Trying to run Prisma migration with `docker compose` during build time didn't work out! Name resolution of the compose service wasn't working as expected! As a solution for the time being, migrations were moved to the entrypoint of docker container.
+
 ### Todos
 
 - [ ] Setup monorepo with shared deps
