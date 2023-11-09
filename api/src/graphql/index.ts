@@ -6,7 +6,7 @@ async function createGraphqlServer() {
     typeDefs: `
             ${User.typeDefs}
             type Query{
-                ${User.quries}
+                ${User.queries}
             }
             type Mutation{
                 ${User.mutations}
@@ -14,7 +14,7 @@ async function createGraphqlServer() {
         `,
     resolvers: {
       Query: {
-        ...User.resolvers.quries,
+        ...User.resolvers.queries,
       },
       Mutation: {
         ...User.resolvers.mutations,
