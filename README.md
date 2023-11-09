@@ -4,14 +4,28 @@
 
 ## Run locally
 
+Start the dev server,
+
 ```bash
 git clone git@github.com:TusharIbtekar/teebay.git
 cd teebay
 mv .env.example .env
-docker compose up -d
+docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d
 ```
 
 Visit http://localhost:4000/graphql to interact with the graphql interface provided by `apollo`
+
+To stop the dev server,
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.dev.yml down -v
+```
+
+### Run the prod build
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build   # pass build flag in-case you already have an image built with dev script
+```
 
 ## Backend
 

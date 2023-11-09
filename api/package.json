@@ -4,10 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "generate": "npx prisma generate",
-    "dev": "tsc-watch --onSuccess \"pnpm start\"",
+    "dev": "pnpm run migrate:dev && tsc-watch --onSuccess \"pnpm start\"",
     "start": "node build/index.js",
-    "build": "pnpm generate && tsc"
+    "start:prod": "pnpm run build && node build/index.js",
+    "build": "tsc",
+    "build:prod": "pnpm run migrate:prod && tsc",
+    "generate": "npx prisma generate",
+    "migrate:dev": "npx prisma migrate dev",
+    "migrate:prod": "npx prisma migrate deploy"
   },
   "keywords": [],
   "author": "",
